@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>RescueNepal</title>
+
+    <!-- Bootstrap core CSS -->
+    {% include 'base/bootstrap.min.css.html' %}
+
+    <!-- Custom fonts for this template -->
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+        type="text/css">
+
+    <!-- Button Success to #FC8019 -->
+    <style>
+        .btn-success,
+        .btn-success:hover,
+        .btn-success:active,
+        .btn-success:visited {
+            background-color: #00b14f !important;
+            border: #00b14f !important;
+        }
+
+        .badge-success {
+            background-color: #00b14f !important;
+            border: #00b14f !important;
+        }
+
+        .form-control:focus {
+            border-color: #00b14f;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #00b14f;
+        }
+
+        ::selection {
+            color: white;
+            background: #00b14f;
+        }
+    </style>
+
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Bootstrap core JavaScript -->
+    {% include 'base/jquery.min.js.html' %}
+    {% include 'base/bootstrap.bundle.min.js.html' %}
+
+</body>
+
+</html>

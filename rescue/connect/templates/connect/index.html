@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+    .card:hover {
+        border: 1px solid #00b14f;
+    }
+
+    a {
+        color: black
+    }
+
+    a:hover {
+        color: black;
+        text-decoration: none;
+    }
+</style>
+
+<hr style="margin-top:1rem;margin-bottom: 1rem;border-top: 1px solid rgba(0, 0, 0, 0);">
+
+<div class="container">
+
+    <h1 class="display-4">Be the part of the change!</h1>
+    <p class="lead"><a style="color: #00b14f">RescueNepal</a> is an open platform to support the needy ones in the time
+        of
+        crisis and disaster.</p>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Important notice: </strong> Because of COVID19 crisis, many food banks may be operating in your area. Find them out and help.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <a class="btn btn-success btn-lg" href="#" role="button">I want to help.</a>
+    <a class="btn btn-danger btn-lg" href="#" role="button">Someone needs help!</a>
+
+    <hr style="margin-top:1rem;margin-bottom: 1rem;border-top: 1px solid rgba(0, 0, 0, 0);">
+
+    <h2>Available Food Banks/Help Centers</h2>
+
+    <div class="row row-cols-1 row-cols-md-3">
+        <div class="col mb-4">
+            <a href="/">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col mb-4">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

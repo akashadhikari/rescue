@@ -26,7 +26,8 @@
         of
         crisis and disaster.</p>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Important notice: </strong> Because of COVID19 crisis, many food banks may be operating in your area. Find them out and help.
+        <strong>Important notice: </strong> Because of COVID19 crisis, many food banks may be operating in your area.
+        Find them out and help.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -38,49 +39,26 @@
 
     <h2>Available Food Banks/Help Centers</h2>
 
+
     <div class="row row-cols-1 row-cols-md-3">
+        {% for help_center in help_centers %}
+
         <div class="col mb-4">
-            <a href="/">
+
+            <a href="{% url 'connect:center' pk=help_center.pk %}">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="..." class="card-img-top" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">{{help_center.name}}</h5>
+                        <p>{{help_center.address}}</p>
+                        <p class="card-text">{{help_center.description}}</p>
                     </div>
                 </div>
             </a>
+
         </div>
-        <div class="col mb-4">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-4">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-4">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
+
     </div>
 
 </div>

@@ -27,21 +27,21 @@
 
 <div class="container">
 
-    <h1 class="display-4">Be the part of the change!</h1>
+    <h1 class="display-4">Be the part of the <a style="color: #00b14f">change!</a></h1>
     <p class="lead"><a style="color: #00b14f">RescueNepal</a> is an open platform to support the needy ones in the time
         of
         crisis and disaster.</p>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Notice: </strong> Because of COVID19 crisis, many underprivileged families are suffering. Find help
-        centers operating near you and offer help.
+        <strong>Notice: </strong> Because of the crisis led by COVID19 lockdown, many families are suffering. Find help
+        centers operating nearby. We need <strong>YOU!</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <hr>
 
-    <a class="btn btn-success btn-lg" href="#" role="button">I want to help.</a>
-    <a class="btn btn-danger btn-lg" href="{% url 'connect:need_help' %}" role="button">Someone needs help!</a>
+    <a class="btn btn-success btn-lg" href="#" role="button">I want to help</a>
+    <a class="btn btn-danger btn-lg" href="{% url 'connect:list_help' %}" role="button">See who needs help</a>
 
     <hr>
 
@@ -62,8 +62,8 @@
                         <h5 class="card-title">{{help_center.name}}</h5>
                         <p>{{help_center.address}}</p>
                         <p class="card-text">{{help_center.description}}</p>
-                        <p>{% for need in help_centers.needs.all %} <span
-                                class="badge badge-pill badge-success">{{need}}</span>{% endfor %}</p>
+                        <p>{% for need in help_center.needs.all %} <span
+                            class="badge badge-pill badge-success">{{need}}</span>{% endfor %}</p>
                     </div>
                 </div>
             </a>

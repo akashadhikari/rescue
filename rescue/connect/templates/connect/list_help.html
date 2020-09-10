@@ -4,10 +4,21 @@
 
 {% block content %}
 
-<hr style="margin-top:1rem;margin-bottom: 1rem;border-top: 1px solid rgba(0, 0, 0, 0);">
+<style>
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-top: 1px solid rgba(0, 0, 0, 0);
+    }
+</style>
+
+<hr>
 
 
 <div class="container">
+
+    <a class="btn btn-danger btn-lg" href="{% url 'connect:add_need' %}" role="button">I know someone who needs help!</a>
+    <hr>
 
     <h3>They need your help!</h3>
 
@@ -33,8 +44,7 @@
                 <td>{{ help.address }}</td>
                 <td>{{ help.contact }}</td>
                 <td>{% for need in help.needs.all %} <span
-                        class="badge badge-pill badge-danger">{{need}}</span>{% endfor %}</td>
-                <!-- <td>{{ help.other_needs_or_remark|truncatewords:"100" }}</td> -->
+                        class="badge badge-pill badge-success">{{need}}</span>{% endfor %}</td>
                 <td>{{ help.number_of_people }}</td>
 
 

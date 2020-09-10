@@ -39,7 +39,7 @@ class Help(Info):
 class SomeoneNeedsHelp(Info):
 
     needs = models.ManyToManyField(Need, related_name="need_help")
-    number_of_people = models.IntegerField()
+    number_of_people = models.CharField(max_length=10)
 
     def __str__(self):
         return self.name

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import HelpCenter, Help, SomeoneNeedsHelp
-from .forms import HelpCenterForm, NeedHelpForm
+from .forms import HelpCenterForm, NeedHelpForm, HelpForm
 
 
 # List all help centers and home view
@@ -57,11 +57,9 @@ def show_needs(request):
     context = {
         'helps': helps
     }
-    return render(request, "connect/list_help.html", context)
+    return render(request, "connect/list_need.html", context)
 
 # add particular need
-
-
 def add_need(request):
     form = NeedHelpForm(request.POST or None)
     context = {
@@ -74,7 +72,7 @@ def add_need(request):
         contact = request.POST.get('contact')
         description = request.POST.get('description')
         needs = request.POST.getlist('needs')
-        number_of_people = request.POST.getlist('number_of_people')
+        number_of_people = request.POST.get('number_of_people')
 
         new_need_help = SomeoneNeedsHelp.objects.create(
             name=name,
@@ -87,15 +85,42 @@ def add_need(request):
 
         new_need_help.save()
         if request.method == 'POST':
-            return redirect(reverse('connect:show_needs'))
+            return redirect(reverse('connect:list_need'))
     return render(request, "connect/add_need_help.html", context)
 
 
 # add particular help
 def add_help(request):
-    pass
+    form = HelpForm(request.POST or None)
+    context = {
+        "help_form": form,
+
+    }
+    if form.is_valid():
+        name = request.POST.get('name')
+        address = request.POST.get('address')
+        contact = request.POST.get('contact')
+        description = request.POST.get('description')
+        needs = request.POST.getlist('needs')
+
+        new_need_help = Help.objects.create(
+            name=name,
+            contact=contact,
+            address=address,
+            description=description,
+        )
+        new_need_help.needs.add(*needs)
+
+        new_need_help.save()
+        if request.method == 'POST':
+            return redirect(reverse('connect:list_help'))
+    return render(request, "connect/add_help.html", context)
 
 
 # list all helps
 def show_helps(request):
-    pass
+    helps = Help.objects.all().order_by('id')
+    context = {
+        'helps': helps
+    }
+    return render(request, "connect/list_help.html", context)

@@ -17,10 +17,10 @@
 
 <div class="container">
 
-    <a class="btn btn-success btn-lg" href="{% url 'connect:add_help' %}" role="button">I want to register for help!</a>
+    <a class="btn btn-danger btn-lg" href="{% url 'connect:add_need' %}" role="button">I know someone who needs help!</a>
     <hr>
 
-    <h3>There are other superheroes who would like to help too. Feel free to connect.</h3>
+    <h3>They need your help!</h3>
 
 
     <table class="table">
@@ -28,9 +28,11 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
+                <th scope="col">Time</th>
                 <th scope="col">Place</th>
                 <th scope="col">Phone</th>
-                <th scope="col">Can Provide</th>
+                <th scope="col">Needs</th>
+                <th scope="col">Number of people</th>
             </tr>
         </thead>
         <tbody>
@@ -38,10 +40,12 @@
             <tr>
                 <th scope="row">{{ help.id }}</th>
                 <td>{{ help.name }}</td>
+                <td>{{ help.created_at|naturaltime }}</td>
                 <td>{{ help.address }}</td>
                 <td>{{ help.contact }}</td>
                 <td>{% for need in help.needs.all %} <span
                         class="badge badge-pill badge-success">{{need}}</span>{% endfor %}</td>
+                <td>{{ help.number_of_people }}</td>
 
 
             </tr>

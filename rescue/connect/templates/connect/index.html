@@ -15,9 +15,15 @@
         color: black;
         text-decoration: none;
     }
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-top: 1px solid rgba(0, 0, 0, 0);
+    }
 </style>
 
-<hr style="margin-top:1rem;margin-bottom: 1rem;border-top: 1px solid rgba(0, 0, 0, 0);">
+<hr>
 
 <div class="container">
 
@@ -26,18 +32,22 @@
         of
         crisis and disaster.</p>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Important notice: </strong> Because of COVID19 crisis, many food banks may be operating in your area.
-        Find them out and help.
+        <strong>Notice: </strong> Because of COVID19 crisis, many underprivileged families are suffering. Find help
+        centers operating near you and offer help.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+    <hr>
+
     <a class="btn btn-success btn-lg" href="#" role="button">I want to help.</a>
-    <a class="btn btn-danger btn-lg" href="#" role="button">Someone needs help!</a>
+    <a class="btn btn-danger btn-lg" href="{% url 'connect:need_help' %}" role="button">Someone needs help!</a>
 
-    <hr style="margin-top:1rem;margin-bottom: 1rem;border-top: 1px solid rgba(0, 0, 0, 0);">
+    <hr>
 
-    <h2>Available Food Banks/Help Centers</h2>
+    <h2>Available <a style="color: #00b14f">Help Centers/Food Banks</a></h2>
+
+    <hr>
 
 
     <div class="row row-cols-1 row-cols-md-3">
@@ -47,11 +57,13 @@
 
             <a href="{% url 'connect:center' pk=help_center.pk %}">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="">
+                    <img src="{% static 'connect/groceries.jpg' %}" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">{{help_center.name}}</h5>
                         <p>{{help_center.address}}</p>
                         <p class="card-text">{{help_center.description}}</p>
+                        <p>{% for need in help_centers.needs.all %} <span
+                                class="badge badge-pill badge-success">{{need}}</span>{% endfor %}</p>
                     </div>
                 </div>
             </a>

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container mx-auto" style="width: 1000px;"><br>
+<div class="container"><br>
     <h1>How do you like to <a style="color: #00b14f">help?</a></h1><br>
     <form method="POST">{% csrf_token %}
         {{ help_form.as_p }}

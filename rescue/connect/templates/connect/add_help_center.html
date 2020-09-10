@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container mx-auto" style="width: 1000px;"><br>
+<div class="container"><br>
     <h1>Register New <a style="color: #00b14f">Help Center / Food Bank</a></h1><br>
     <form method="POST">{% csrf_token %}
         {{ help_center_form.as_p }}
